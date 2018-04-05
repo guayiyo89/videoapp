@@ -1,0 +1,23 @@
+<div class="container top30 animated fadeIn fast" *ngIf="pelicula">
+	<div class="row">
+		<div class="col-md-4"><img class="card-img-top" [src]="pelicula|posterFlim"></div>
+		<div class="col-md-8">
+			<h1 class="purple"><strong>
+			  {{pelicula.title}}</strong>
+			</h1>
+			<h4>{{pelicula.original_title}} - {{pelicula.release_date | date:"yyyy"}}</h4>
+			<p class="text-justify"> {{pelicula.overview}} </p>
+			<div *ngIf="pelicula.tagline.length > 1"><h4 class="text-center font-italic">"{{ pelicula.tagline }}"</h4></div>
+			<p><strong>Popularidad: </strong> <span class="badge badge-purple">{{ pelicula.popularity| number:'.2-3' }}</span></p>
+			<p><strong>Valoración: </strong> <span class="badge badge-purple">{{ pelicula.vote_average }}</span> 
+				De {{ pelicula.vote_count }} votos.<small></small>
+			</p>
+			<button class="btn btn-outline-prp" [routerLink]="[('/buscar')]">
+				<i class="fa fa-chevron-left" style="font-size:20px"></i>Volver</button>
+			<button class="btn btn-outline-prp">
+				<i class="fa fa-hand-o-up" style="font-size:20px"></i>Visitar Web</button>
+		</div>
+	</div>
+</div>
+
+

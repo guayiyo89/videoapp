@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg raleway navbar-bg sticky-top">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fa fa-bars" style="font-size:24px"></i>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['/home']">HOME</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link">CARTELERA</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link">POPULAR</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link">INFANTIL</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/buscar']">BUSCAR</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">ACERCA DE</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0" (ngSubmit)="buscarFilm(buscar.value)">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" #buscar>
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>

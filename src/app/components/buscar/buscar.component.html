@@ -1,0 +1,32 @@
+<div class="container top30">
+	<div class="row">
+		<div class="col-md-12">
+			<h1 *ngIf="buscar.length < 1" class="h1-carr">Buscar</h1>
+			<h1 *ngIf="buscar.length > 1" class="h1-carr">Resultados de '{{buscar}}'</h1>
+			<input type="text" name="buscar" [(ngModel)]="buscar" (keyup.enter)="buscarFilm()"
+			class="buscarbar" placeholder="Palabra Clave">
+		</div>
+	</div>
+
+
+	<div class="row top30">
+	<div class="col-md-12">
+		<div class="card-columns">
+
+		  <div class="card" *ngFor="let pelicula of _peliculaSrv.peliculas; let i of index">
+		    <img class="card-img-top" [src]="pelicula|imagenFlim">
+		    <div class="card-body">
+		      <h4 class="card-title purple">{{pelicula.title}}</h4>
+		      <p class="card-text text-justify">{{pelicula.overview | slice:0:200}}...</p>
+		      <button class="btn btn-outline-prp w100" [routerLink]="['/pelicula', pelicula.id, 'buscar']" >Ver más...</button>
+		    </div>
+		    <div class="card-footer">
+		      <small><strong>Titulo Original: </strong>{{pelicula.original_title}}<br>
+		      			<strong>Fecha Estreno: </strong>{{pelicula.release_date | date:"dd/MM/yyyy"}}<br></small>
+		    </div>
+		  </div>
+
+		</div>
+	</div>
+	</div>
+</div>
